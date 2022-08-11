@@ -1,0 +1,293 @@
+HW 01
+
+import java.util.Scanner;
+
+public class HW1 {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+
+		// getting symbol & name from user
+		System.out.print("Enter stock name: ");
+		String name = input.nextLine();
+
+		System.out.print("Enter stock symbol: ");
+		String symbol = input.next();
+		
+		// getting stock current & closing price from user
+		System.out.print("Enter stock current price: ");
+		double currentp = input.nextDouble();
+		
+		System.out.print("Enter stock closing price: ");
+		double closingp = input.nextDouble();
+
+		// creating object with the stock symbol and the name
+		Stock S1 = new Stock(symbol, name);
+		// the previous closing price
+		S1.previousClosingPrice = closingp;
+		// setting new current price
+		S1.currentPrice = currentp;
+		
+		//printing
+		System.out.println("\nDisplay:");
+		System.out.println("Stock name  : "+S1.name);
+		System.out.println("Stock symbol: "+S1.symbol);
+		System.out.printf("Price changing : %.2f",S1.getChangePercent());
+		System.out.print("%");
+		
+		input.close();
+
+	}
+}
+	class Stock {
+		String symbol;
+		String name;
+		double previousClosingPrice;
+		double currentPrice;
+
+		// this constructor will creates a stock with the specific symbol and name
+		Stock(String symbol, String name) {
+			this.symbol = symbol;
+			this.name = name;
+		}
+
+		// this method will return the percentage
+		double getChangePercent() {
+			double diff = currentPrice - previousClosingPrice;
+			return (diff / previousClosingPrice) * 100;
+		}
+	}
+
+
+HW 02
+
+
+nes (88 sloc)  2.45 KB
+
+import java.util.*;
+public class HW2 {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		//getting user inputs
+		System.out.print("Enter ACC NO: ");
+		int acc_no = input.nextInt();
+		System.out.print("Enter Balance: ");
+		double balance = input.nextDouble();
+		
+		System.out.print("Annual Innterest Rate: ");
+		double annualinterest_rate = input.nextDouble();
+		
+		System.out.print("\nWithdraw amount: ");
+		double withdraw_amount = input.nextDouble();
+		
+		System.out.print("Deposit amount: ");
+		double deposit_amount = input.nextDouble();
+		
+		//creates an account instance and set values
+		Account AC = new Account(acc_no,balance);
+		AC.setAnnualInterestRate(annualinterest_rate);
+		
+		//withdrawing amount
+		AC.withdraw(withdraw_amount);
+		
+		//deposit amount
+		AC.deposit(deposit_amount);
+		
+		//printing info
+		System.out.println("\nAccount informations:");
+		System.out.println("Balance: "+AC.getBalance());
+		System.out.printf("Monthly Interest: %.2f\n",AC.getMonthlyInterest());
+		System.out.println("Date of account create: "+AC.getDate());
+		
+		input.close();
+	}
+}	
+	class Account{
+		private int ID;
+		private double balance;
+		private double annualInterestRate;
+		private Date dateCreated;
+		
+		//no arguments constructor
+		Account(){
+			ID = 0;
+			balance = 0.0;
+			annualInterestRate = 0.0;
+			dateCreated = new Date();
+		}
+		
+		//argument constructor
+		Account(int ID,double balance){
+			this.ID = ID;
+			this.balance = balance;
+		}
+		
+		//getter method
+		int getID() {
+			return this.ID;
+		}
+		
+		double getBalance() {
+			return this.balance;
+		}
+		
+		double getAnnualInterestRate() {
+			return this.annualInterestRate;
+		}
+		
+		String getDate() {
+			this.dateCreated = new Date();
+			return this.dateCreated.toString();
+		}
+		
+		//setter method
+		void setID(int ID) {
+			this.ID = ID;
+		}
+		
+		void setBalance(double balance) {
+			this.balance = balance;
+		}
+		
+		void setAnnualInterestRate(double annualInterestRate) {
+			this.annualInterestRate = annualInterestRate;
+		}
+		
+		//monthly interest RATE
+		double getMonthlyInterestRate() {
+			return (annualInterestRate/100.0)/12.0;
+		}
+		
+		//monthly interest
+		double getMonthlyInterest() {
+			return (balance*getMonthlyInterestRate());
+		}
+		
+		//deposit
+		void deposit(double TK) {
+			this.balance += TK;
+		}
+		
+		//withdraw
+		void withdraw(double TK) {
+			this.balance -= TK;
+		}
+	}
+
+TASK 01
+
+
+public class Task1 {
+
+	public static void main(String[] args) {
+
+		// create a rectangle and pass 10.5 width 20.5 height
+		Rectangle obj1 = new Rectangle(4, 40);
+		// create a rectangle and pass 5.5 width 10.5 height
+		Rectangle obj2 = new Rectangle(5.5, 10.5);
+		
+		// display for obj1
+		System.out.println("Rectangle 1: ");
+		System.out.println("Width    :     " + obj1.width);
+		System.out.println("Height   :    " + obj1.height);
+		System.out.println("Area     :      " + obj1.getArea());
+		System.out.println("Perimeter: " + obj1.getPerimeter());
+
+		// display for obj2
+		System.out.println();
+		System.out.println("Rectangle 2: ");
+		System.out.println("Width    :     " + obj2.width);
+		System.out.println("Height   :    " + obj2.height);
+		System.out.println("Area     :      " + obj2.getArea());
+		System.out.println("Perimeter: " + obj2.getPerimeter());
+
+	}
+
+	static class Rectangle {
+		double width;
+		double height;
+
+		// no-arg constructor
+		Rectangle() {
+			width = 1.0;
+			height = 1.0;
+		}
+
+		// arg constructor
+		Rectangle(double width, double height) {
+			this.width = width;
+			this.height = height;
+		}
+
+		double getArea() {
+			return width * height;
+		}
+
+		double getPerimeter() {
+			return 2 * (width + height);
+		}
+	}
+
+}
+
+TASK 02
+
+
+public class Task2 {
+
+	public static void main(String[] args) {
+
+		// create a rectangle and pass 10.5 width 20.5 height
+		Triangle obj1 = new Triangle(4, 40);
+		// create a rectangle and pass 5.5 width 10.5 height
+		Triangle obj2 = new Triangle(5.5, 10.5);
+
+		// display for obj1
+		System.out.println("Triangle 1: \n");
+		obj1.showWidthOfEachSide();
+		System.out.println("Area: " + obj1.getArea());
+
+		// display for obj2
+		System.out.println();
+		System.out.println("Triangle 2: \n");
+		obj2.showWidthOfEachSide();
+		System.out.println("Area: " + obj2.getArea());
+
+	}
+
+	static class Triangle {
+		double base;
+		double height;
+
+		// no-arg constructor
+		Triangle() {
+			base = 1.0;
+			height = 1.0;
+		}
+
+		// arg constructor
+		Triangle(double base, double height) {
+			this.base = base;
+			this.height = height;
+		}
+
+		double getArea() {
+			return 0.5 * base * height;
+		}
+
+		void showWidthOfEachSide() {
+			double x = base*(1/3);
+			double y = base*(2/3);
+			
+			double side1 = Math.sqrt((x*x)+(height*height));
+			double side2 = Math.sqrt((y*y)+(height*height));
+			double side3 = base;
+			System.out.println("Side1: "+side1);
+			System.out.println("Side2: "+side2);
+			System.out.println("Side3: "+side3);
+		}
+	}
+
+}
