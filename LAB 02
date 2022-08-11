@@ -1,0 +1,259 @@
+HW 01
+
+import java.util.Scanner;
+import java.util.Random;
+public class HW1 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        Random rand = new Random();
+	int computer = rand.nextInt(3)+0;
+        
+        System.out.print("scissor (0), rock (1), paper (2): ");
+        int play = input.nextInt();
+        
+        if(computer==0){
+            switch(play){
+                case 0:
+                    System.out.println("The computer is scissor. You are scissor too. It is a draw");
+                    break;
+                case 1:
+                    System.out.println("The computer is scissor. You are rock. You won");
+                    break;
+                case 2:
+                    System.out.println("The computer is scissor. You are paper. You lose");
+                    break;
+                default:
+                    System.out.println("wrong play!");
+                    break;
+            }  
+        }else if(computer==1){
+            switch(play){
+                case 0:
+                    System.out.println("The computer is rock. You are scissor. You lose");
+                    break;
+                case 1:
+                    System.out.println("The computer is rock. You are rock too. It is a draw");
+                    break;
+                case 2:
+                    System.out.println("The computer is rock. You are paper. You won");
+                    break;
+                default:
+                    System.out.println("wrong play!");
+                    break;
+            }
+        }else if(computer==2){
+            switch(play){
+                case 0:
+                    System.out.println("The computer is paper. You are scissor. You won");
+                    break;
+                case 1:
+                    System.out.println("The computer is paper. You are rock. You lose");
+                    break;
+                case 2:
+                    System.out.println("The computer is paper. You are paper too. It is a draw");
+                    break;
+                default:
+                    System.out.println("wrong play!");
+                    break;
+            }
+        }
+        
+    }
+}
+
+
+HW 02
+
+
+
+import java.util.Scanner;
+public class HW2 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter an integer, the input ends if it is 0 : ");
+        
+        int positive_count = 0;
+        int negative_count = 0;
+        int sum = 0;
+        float count = 0;
+        int n;
+        
+        do{
+            n = input.nextInt();
+            count++;
+            
+            if(n!=0){
+                sum+=n;
+            }
+            
+            if(n>0){
+                positive_count++;
+            }else if(n<0){
+                negative_count++;
+            }
+        }while(n!=0);
+        
+        System.out.println("The number of positives is "+positive_count);
+        System.out.println("The number of negatives is "+negative_count);
+        System.out.printf("The total is %.1f The average is %.2f",count,(sum/(count-1)));
+        
+    }
+    
+}
+
+
+
+HW 03
+
+
+import java.util.Scanner;
+public class HW3 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        System.out.print("Enter a string: ");
+        String s = input.nextLine();
+        
+        for(int i=0;i<s.length();i++){
+            char ch = s.charAt(i);
+            
+            if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'||
+                ch=='A'||ch=='E'||ch=='I'||ch=='O'||ch=='U'){
+                
+                System.out.println("There are vowels");
+                break;
+                
+            }else{
+                
+                if(i+1==s.length()){
+                    System.out.println("There is no vowels");
+                }
+                
+            }
+        }
+    }
+    
+}
+
+TASK 01
+
+
+
+
+import java.util.Scanner;
+public class Task1 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+       
+        System.out.print("Enter a: ");
+        double a = input.nextDouble();
+        System.out.print("Enter b: ");
+        double b = input.nextDouble();
+        System.out.print("Enter c: ");
+        double c = input.nextDouble();
+
+        double dis = b * b - 4.0 * a * c;
+
+        if (dis > 0.0){
+                
+            double root1 = (-b+Math.pow(dis,0.5))/(2.0*a);
+            double root2 = (-b-Math.pow(dis,0.5))/(2.0*a);
+            System.out.println("Root1: " + root1 + "\nRoot2: " + root2);
+        }
+        else if (dis == 0.0){
+                
+            double root1 = -b/(2.0 * a);
+            System.out.println("Root: " + root1);
+        }
+        else {
+            System.out.println("The equation has no real roots!");
+        }
+    }
+    
+}
+
+
+TASK 02
+
+
+
+import java.util.Scanner;
+public class Task2 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        System.out.print("Enter a string: ");
+        String s1 = input.nextLine();
+        String copy = s1;
+        
+        StringBuilder reverse = new StringBuilder(s1); 
+        reverse.reverse(); 
+        
+        String rev = reverse.toString();
+        
+        if(s1.equals(rev)){
+            System.out.println(copy+" is a palindrome");
+        }else{
+            System.out.println(copy+" is not a palindrome");
+        }
+        
+        
+        
+    }
+    
+}
+
+TASK 03
+
+
+
+import java.util.Random;
+public class Task3 {
+    public static void main(String[] args) {
+        
+        Random rand = new Random();
+        int month = rand.nextInt(11)+1;
+        
+        switch(month)
+        {
+            case 1:
+                System.out.println("January");
+                break;
+            case 2:
+                System.out.println("February");
+                break;
+            case 3:
+                System.out.println("March");
+                break;
+            case 4:
+                System.out.println("April");
+                break;
+            case 5:
+                System.out.println("May");
+                break;
+            case 6:
+                System.out.println("June");
+                break;
+            case 7:
+                System.out.println("July");
+                break;
+            case 8:
+                System.out.println("August");
+                break;
+            case 9:
+                System.out.println("September");
+                break;
+            case 10:
+                System.out.println("October");
+                break;
+            case 11:
+                System.out.println("November");
+                break;
+            case 12:
+                System.out.println("December");
+                break;
+        }
+    }
+    
+}
