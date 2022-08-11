@@ -1,0 +1,236 @@
+HW 01
+
+import java.util.Scanner;
+public class HW1 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        //getting user inputs
+        System.out.print("Enter the initial deposite amount: ");
+        double deposite_amount = input.nextDouble();
+        System.out.print("Enter annual percentage yield: ");
+        double per = input.nextDouble();
+        System.out.print("Enter maturity period (number of months) : ");
+        int months = input.nextInt();
+        
+        //calculation and table display
+        for(int i=1;i<=months;i++){
+            deposite_amount += deposite_amount*(per/1200.0);
+            System.out.printf(i+" %.2f\n",deposite_amount);
+        }
+    }
+    
+}
+
+HW 02
+
+import java.util.Scanner;
+public class HW2 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        //getting String from user
+        System.out.print("Enter the first string: ");
+        String s1 = input.nextLine();
+        System.out.print("Enter the second string: ");
+        String s2 = input.nextLine();
+        
+        //Declaring a String to store the prefix 
+        String s3 = "";
+        
+        //compute then length for loop control
+        int length = s1.length();
+        
+        //compareing char by char using loop
+        for(int index=0;index<length;index++){
+            if(s1.charAt(index)==s2.charAt(index)){
+                s3 += s1.charAt(index);
+            }
+        }
+        
+        //result
+        if(s3!=null){
+            System.out.println("The common prefix is "+s3);
+        }else{
+            System.out.println("No common prefix found!");
+        }
+        
+    }
+    
+}
+
+
+HW 03
+
+
+import java.util.Scanner;
+public class HW3 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        //getting user input
+        System.out.print("Enter the tution fee: ");
+        double tution_fee = input.nextDouble();
+        System.out.print("Enter the percentage of increasing tution fees: ");
+        int per = input.nextInt();
+        
+        double total_cost_in_four_years = 0;
+        
+        //calculation
+        for(int i=1;i<=14;i++){
+            tution_fee += (tution_fee*(per/100.0));
+            
+            if(i==10){ //for 10 years
+                System.out.printf("Tuition in ten years: $%.2f\n",tution_fee);
+            }
+            if (i > 10) { //for end 4 years
+            total_cost_in_four_years += tution_fee;
+           }
+        }
+
+        System.out.printf("Total cost for four years after the tenth year: $%.2f\n",total_cost_in_four_years);
+    }
+   
+}
+
+TASK 01
+
+import java.util.Scanner;
+public class Task1 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        System.out.print("Enter the number of lines: ");
+        int n = input.nextInt();
+        
+        for (int row = 1; row <= n-1; row++) {
+            
+            for (int i = n - row; i >= 1; i--) {
+                System.out.print("  ");
+            }
+            
+            for (int j = row; j >= 2; j--) {
+                System.out.print(" "+j);
+            }
+            
+            for (int k = 1; k <= row; k++) {
+		System.out.print(" "+k);
+            }System.out.println();
+        
+	}
+        
+        //Last line
+        for(int i=n;i>=1;i--){
+            System.out.print(" "+i);
+        }
+        for(int i=2;i<=n;i++){
+            System.out.print(" "+i);
+        }System.out.println();
+    }
+    
+}
+
+TASK 02
+
+import java.util.Scanner;
+public class Task2 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        System.out.print("Enter the percentage of increasing tution fees: ");
+        int per = input.nextInt();
+        
+        double total_cost_in_four_years = 0;
+        double tution_fee = 10000.0;
+        
+        for(int i=1;i<=14;i++){
+            tution_fee += (tution_fee*(per/100.0));
+            
+            if(i==10){ //for 10 years
+                System.out.printf("Tuition in ten years: $%.3f\n",tution_fee);
+            }
+            if (i > 10) { //for end 4 years
+            total_cost_in_four_years += tution_fee;
+           }
+        }
+
+        System.out.printf("Total cost for four years after the tenth year: $%.3f\n",total_cost_in_four_years);
+    }
+    
+}
+
+
+TASK 03
+
+import java.util.Scanner;
+public class Task3 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        System.out.print("Choose an operator: +,-,*, or /: ");
+        char ch = input.next().charAt(0);
+        
+        System.out.print("Enter first number: ");
+        double a = input.nextDouble();
+        System.out.print("Enter second number: ");
+        double b = input.nextDouble();
+        
+        switch(ch)
+        {
+            case '+' :
+                System.out.printf("%.2f + %.2f = %.2f",a,b,(a+b));
+                break;
+            case '-' :
+                System.out.printf("%.2f - %.2f = %.2f",a,b,(a-b));
+                break;
+            case '*' :
+                System.out.printf("%.2f * %.2f = %.2f",a,b,(a*b));
+                break;
+            case '/' :
+                System.out.printf("%.2f / %.2f = %.2f",a,b,(a/b));
+                break;
+            default :
+                System.out.println("Invalid operator!");
+
+    }
+    }
+}
+
+
+TEST JAVA
+
+
+import java.util.Scanner;
+public class Test {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        //declaration
+        int n;
+        int sum = 0;
+        int count= 0;
+        
+        //getting inputs
+        do{
+            System.out.print("Enter integer ( Press 0 to STOP ): ");
+            n = input.nextInt();
+            sum += n;
+            count++;
+        }while(n!=0);
+        
+        //call method to calculate average
+        double avg = average(sum,count-1);
+        //call method to print result
+        display(sum,avg);
+    }
+    public static double average(int sum,int count){
+        return ((double)sum/count);
+    }
+    public static void display(int sum,double avg){
+        System.out.println("Sum: "+sum);
+        System.out.printf("Average: %.2f\n",avg);
+    }
+
+    
+
+}
