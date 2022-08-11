@@ -1,0 +1,165 @@
+HW 01
+
+
+import java.util.Scanner;
+
+public class HW1 {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int number = input.nextInt();
+
+        if (isPalindrom(number)) {
+            System.out.println("Palindrome");
+        } else {
+            System.out.println("Not Palindrome!");
+        }
+    }
+
+    public static int reverse(int number) {
+        int rev = 0;
+        int onedigit;
+
+        //reversing algo
+        while (number != 0) {
+            onedigit = number % 10;
+            rev = rev * 10 + onedigit;
+            number /= 10;
+        }
+        return rev;
+    }
+
+    public static boolean isPalindrom(int number) {
+        if (number == reverse(number)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+}
+
+
+HW 02
+
+
+import java.util.Scanner;
+
+public class HW2 {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        //getting inputs
+        System.out.print("Number 1: ");
+        double num1 = input.nextDouble();
+        System.out.print("Number 2: ");
+        double num2 = input.nextDouble();
+        System.out.print("Number 3: ");
+        double num3 = input.nextDouble();
+
+        displaySortedNumbers(num1, num2, num3);
+    }
+
+    public static void displaySortedNumbers(double num1, double num2, double num3) {
+
+        double min = Math.min(Math.min(num1, num2), num3);
+        double max = Math.max(Math.max(num1, num2), num3);
+        double middle = num1 + num2 + num3 - min - max;
+
+        //display
+        System.out.println(min + "  " + middle + "  " + max);
+
+    }
+
+}
+
+HW 03
+
+
+import java.util.Scanner;
+
+public class HW3 {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        //getting inputs
+        System.out.print("The amount invested: ");
+        double amount = input.nextDouble();
+        System.out.print("Annual interest rate: ");
+        double annual_interest = input.nextDouble();
+
+        //printing 1 to 30 months table
+        for (int i = 1; i <= 30; i++) {
+            System.out.printf("\n" + i + " \t%.2f", futureInvestmentValue(amount, annual_interest, i));
+        }
+
+    }
+
+    public static double futureInvestmentValue(double investmentAmount, double monthlyInterestRate, int years) {
+        monthlyInterestRate = (monthlyInterestRate / 100.0) / 12;
+        double res = investmentAmount * Math.pow(1 + monthlyInterestRate, years * 12);
+        return res;
+    }
+
+}
+
+
+TASK 01
+
+
+import java.util.Scanner;
+
+public class Task1 {
+
+    public static int getPentagonalNumber(int n) {
+        int pentagonal = (n * (3 * n - 1)) / 2;
+        return pentagonal;
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Pentagonal numbers from 1 - 100 : \n");
+        for (int i = 1; i <= 100; i++) {
+
+            //printing 10 rows containing 10 numbers
+            if (i % 10 == 0) {
+                System.out.println(getPentagonalNumber(i) + "\t");
+            } else {
+                System.out.print(getPentagonalNumber(i) + "\t");
+            }
+        }
+
+    }
+
+}
+
+TASK 02
+
+import java.util.Scanner;
+public class Task2 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        System.out.print("Enter digits: ");
+        long digits = input.nextLong();
+        
+        int sum = sumDigits(digits);
+        System.out.println("Sum of digits: "+sum);
+    }
+    public static int sumDigits(long n){
+        
+        int sum = 0;
+        while(n!=0){
+            sum += n%10;
+            n/=10;
+        }
+        
+        return sum;
+    }
+    
+}
