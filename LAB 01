@@ -1,0 +1,103 @@
+HW 01
+import java.util.Scanner;
+public class HW1 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        double w,h;
+        System.out.print("Enter weigth in pounds: ");
+        w = input.nextDouble();
+        System.out.print("Enter height in inches: ");
+        h = input.nextDouble();
+        
+        w *= 0.45359237;
+        h *= 0.0254;
+        
+        double BMI =  (w)/(h*h);
+        System.out.println("BMI is "+BMI);
+    }
+    
+}
+
+HW 02
+
+import java.util.Scanner;
+public class HW2 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        double subtotal, gratuity_rate;
+        System.out.print("Enter the subtotal and a gratuity rate: ");
+        subtotal = input.nextDouble();
+        gratuity_rate = input.nextDouble();
+        
+        double gratuity = subtotal*(gratuity_rate/100);
+        double total = subtotal+gratuity;
+        System.out.println("The gratuity is $"+gratuity+" and total is $"+total);
+    }
+    
+}
+
+HW 03
+
+import java.util.Scanner;
+public class HW3 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        double C;
+        System.out.print("Enter a degree in Celsius: ");
+        C = input.nextDouble();
+        
+        double F = ((9*C)/5)+(32);
+        System.out.println(""+C+" Celsius is "+F+" Fahrenheit");
+    }
+    
+}
+
+TASK 01
+
+public class Task1 {
+    
+    public static void main(String[] args) {
+        final double PI = 3.14;
+        final double radius = 5.5;
+        
+        double perimeter = 2*radius*PI;
+        double area = radius*radius*PI;
+        System.out.println("Perimeter: "+perimeter);
+        System.out.println("Area: "+area);
+        
+    }
+    
+    
+}
+
+TASK 02
+
+public class Task2 {
+    public static void main(String[] args) {
+        double miles = 14/1.6;
+        double hour = (45/60)+ (30/3600);
+        double avg = miles/hour;
+        System.out.println("Average speed: "+avg);
+        
+    }
+    
+}
+
+TASK 03
+
+import java.util.Scanner;
+public class Task3 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        double v;
+        double a;
+        System.out.println("Enter speed and acceleration: ");
+        v = input.nextDouble();
+        a = input.nextDouble();
+        
+        double length = (v*v)/(2.0*a);
+        System.out.println("The minimum runway length for the airplane is "+length);
+        
+    }
+    
+}
